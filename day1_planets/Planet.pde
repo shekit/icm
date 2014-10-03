@@ -24,15 +24,13 @@ class Planet {
      moon_radius = tempMoonRadius;
      angle_increment = tempAngleIncrement;
   }
-  
-  // void setAngleIncrement(float tempAngle){
-  //     angle_increment = tempAngle;
-  // }
+
   
   void display(float tempTranslateX, float tempTranslateY, float tempTranslateZ) {
      translateX = tempTranslateX;
      translateY = tempTranslateY;
      translateZ = tempTranslateZ;
+     // change origin of planet to translate x and translate Y
      pushMatrix();
      translate(translateX,translateY,translateZ);
      fill(c);
@@ -51,12 +49,15 @@ class Planet {
      stroke(255,50);
      strokeWeight(1);
      noFill();
+     // rotate evrything below this on x n y axis
      rotateX(radians(angle));
      rotateY(radians(angle/2));
+     // draw orbit path
      ellipse(0,0,tempOrbitWidth*2, tempOrbitHeight*2);
      println(tempOrbitWidth*3);
-     
+     // make moon rotate around planet
        pushMatrix();
+       // determine orbit path
        float x = tempOrbitWidth * cos(angle/8);
        float y = tempOrbitHeight * sin(angle/8);
        translate(x, y,0);
