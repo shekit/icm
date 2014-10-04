@@ -13,8 +13,8 @@ void setup() {
   arrowList = new Arrow[count];
   
   println(arrowList.length);
-  int index = 0;
-  for(int x = 0; x<width; x+= border){
+  int index = 0;  // to set number of items in the array
+  for(int x = 0; x<width; x+= border){   // used mainly to set the x,y coordinates of the arrows, so they know where to be drawn
      for(int y = 0; y<height;  y+=border) {
         color c  = colorList[int(random(colorList.length))]; // select color from array randomly
         arrowList[index] = new Arrow(30,10,x,y,random(0.8), c);  // create array based on number of arrows
