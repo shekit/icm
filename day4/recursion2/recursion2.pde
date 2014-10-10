@@ -10,7 +10,7 @@ void setup() {
   stroke(0);
   strokeWeight(2);
   //rotate(radians(mouseY));
-  draw_branch(width/2,height,300,0,10);
+  draw_branch(width/2,height,300,-90,0);
 }
 
 void draw() {
@@ -23,14 +23,14 @@ void draw_branch(float tx, float ty, float y, float rotation, int index){
   
   pushMatrix();
   translate(tx,ty);
-  rotate(radians(rotation));
+  rotate(radians(index*rotation/2));
   line(0,0,0,-y);
   
-  if(index>2){
-     draw_branch(tx*0, -y, -y/2, rotation-45,index-1);
-     draw_branch(tx*0, -y, -y/2, rotation+45, index-1);
-     draw_branch(tx*0, -y, -y/2, rotation-135,index-1);
-     draw_branch(tx*0, -y, -y/2, rotation+135, index-1);
+  if(index<10){
+     draw_branch(tx*0, -y, -y/2, rotation,index+1);
+     draw_branch(tx*0, -y, -y/2, -rotation, index+1);
+     draw_branch(tx*0, -y, -y/2, rotation,index+1);
+     draw_branch(tx*0, -y, -y/2, -rotation, index+1);
   }
   
   popMatrix();
